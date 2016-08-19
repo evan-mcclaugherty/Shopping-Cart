@@ -1,0 +1,24 @@
+<div class="row">
+    <form class="col s9 offset-s2">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="first" type="number" ng-model="number.first">
+                <label for="first">First Number</label>
+            </div>
+            <div input-field class="col s4">
+                <select class="" ng-model="number.operator" material-select watch>
+                    <option ng-repeat="operator in number.operators">{{operator}}</option>
+                </select>
+                <label>Operation:</label>
+            </div>
+            <div class="input-field col s4">
+                <input id="second" type="number" ng-model="number.second">
+                <label for="second">Second Number</label>
+            </div>
+        </div>
+        <div class="row">
+            <button ui-sref="home.answer" ng-show="showButton"ng-click="showButton = !showButton" class="waves-effect waves-light btn col s4 offset-s4" type="submit" name="button">Calculate</button>
+        </div>
+    </form>
+</div>
+<div class="row" ui-view></div>

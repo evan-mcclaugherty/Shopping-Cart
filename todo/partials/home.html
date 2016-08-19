@@ -1,0 +1,27 @@
+<div class="row">
+    <form class="col s8 offset-s2" ng-submit="addTodo(todo.add)">
+        <div class="row">
+            <div class="input-field">
+                <input id="todo" type="text" ng-model="todo.add" required>
+                <label for="todo" class="blue-grey-text">Add a Todo</label>
+            </div>
+        </div>
+        <button type="submit" class="waves-effect waves-light blue-grey darken-2 btn col s12" name="button">Add Todo</button>
+    </form>
+</div>
+<div class="row">
+    <div class="col s8 offset-s2">
+        <div class="card blue-grey" ng-repeat="eachTodo in todos">
+            <div class="card-content white-text">
+                <span class="card-title">{{eachTodo}}</span>
+                <i class="white-text medium material-icons right cursor" ng-click="deleteTodo(eachTodo)">delete</i>
+                <i class="white-text medium material-icons right cursor" ng-click="toggleAddTodo = !toggleAddTodo">edit</i>
+            </div>
+            <div class="input-field blue-gray lighten-2" ng-show="toggleAddTodo">
+                <input id="editTodo" type="text" class="blue-grey-lighten-3 white-text" ng-model="edit">
+                <label for="editTodo" class="white-text">Edit Todo</label>
+                <a ng-click="editTodo(edit); toggleAddTodo = !toggleAddTodo" class="waves-effect waves-light blue-grey darken-2 btn col s12">Edit Todo</a>
+            </div>
+        </div>
+    </div>
+</div>

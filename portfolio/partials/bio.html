@@ -1,0 +1,14 @@
+<h1>BIO</h1>
+<a ui-sref="bio.message">
+    Want to send a message?
+</a>
+<div ui-view></div>
+<ul>
+    <li ng-repeat="post in view.data | orderBy:post.id:true">
+        <p>
+            {{post.name}}
+            -
+            {{post.content}}
+        </p>
+    </li>
+</ul>

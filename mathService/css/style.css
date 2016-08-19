@@ -1,0 +1,21 @@
+.nav, .pagination, .carousel, .panel-title, .fa-arrow-up, .fa-arrow-down, a {
+    cursor: pointer;
+}
+.red {
+    color: red;
+}
+.green {
+    color: green;
+}
+.pointer {
+    cursor: pointer;
+}
+.valid {
+    background-color: rgba(117, 236, 124, .5);
+}
+.post.ng-enter {
+    animation: slideInLeft .6s;
+}
+.post.ng-leave {
+    animation: slideOutRight .6s;
+}

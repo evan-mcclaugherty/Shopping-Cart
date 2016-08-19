@@ -1,0 +1,99 @@
+{{view.total}}
+<div class="row valign-wrapper">
+    <div class="col s4">
+        <div class="input-field">
+            <select class="browser-default" ng-model="view.category">
+                <option value="" disabled selected>Category:</option>
+                <option value="">No Category</option>
+                <option ng-repeat="category in view.categories" value="{{category}}">{{category}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <div class="input-field">
+            <input id="first_name" type="text" ng-model="view.search">
+            <label for="first_name">Search by Name</label>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <a ui-sref="checkout" ng-click="view.saveTeaData()" class="waves-effect waves-light btn right">Checkout | Bag:
+            <span ng-if="view.bag > 0">({{view.bag}})</span>
+            <ng-pluralize count="view.bag" when="{'0': 'Empty!', 'one': '','other': ''}"></ng-pluralize>
+        </a>
+    </div>
+</div>
+<table class="bordered">
+    <thead>
+        <tr>
+            <th data-field="tea">Tea</th>
+            <th data-field="information" class="row">
+                Information
+                <select class="browser-default col s3 right" ng-model="view.sortBy">
+                    <option value="" selected disabled>Sort by price:</option>
+                    <option value="">Unsorted</option>
+                    <option value="-price">Highest</option>
+                    <option value="price">Lowest</option>
+                </select>
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="tea in view.teas | orderBy:view.sortBy | filter:view.search | filter:view.category" class="row">
+            <td>
+                <img class="responsive-img" src="{{tea.imageUrl}}">
+            </td>
+            <td>
+                <div class="row">
+                    <h4 class="left">{{tea.name}}</h4>
+                    <a class="btn-floating btn-medium waves-effect waves-light orange right" ng-click="view.addQuantity(tea)">
+                        <i class="material-icons">add</i>
+                    </a>
+                    <select class="browser-default col s3 right" value='1' ng-model="tea.choice">
+                        <option selected disabled value="">Quantity</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <p>
+                        Price:
+                        {{view.getPrice(tea.price) | currency}}
+                    </p>
+                    <p>
+                        Caffeine Scale:
+                        {{tea.caffeineScale}}
+                    </p>
+                    <p>
+                        Ingredients:
+                        {{tea.ingredients}}
+                    </p>
+                    <p>
+                        Rating:
+                        {{tea.rating}}
+                    </p>
+                    <p>
+                        In Stock?
+                        {{tea.inStock}}
+                    </p>
+                    <ul class="collection with-header col s3">
+                        <li class="collection-header">
+                            <strong>Categories:</strong>
+                        </li>
+                        <li class="collection-item" ng-repeat="category in tea.categories">{{category}}</li>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

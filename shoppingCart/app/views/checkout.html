@@ -1,0 +1,40 @@
+<div class="row">
+    <h4 class="left">My Shopping Bag</h4>
+    <h4 class="right">Order Total: {{view.getTotal()}}</h4>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th data-field="id">Product</th>
+            <th data-field="name">Quantity</th>
+            <th data-field="price">Sub-total</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="tea in view.teas" ng-if="tea.choice > 0">
+            <td>
+                <h4>{{tea.name}}</h4>
+                <img src="{{tea.imageUrl}}"/>
+                <p>
+                    Caffeine Scale: {{tea.caffeineScale}}
+                </p>
+                <p>
+                    Ingredients: {{tea.ingredients}}
+                </p>
+                <p>
+                    Rating: {{tea.rating}}
+                </p>
+            </td>
+            <td>
+                <p ng-hide="view.isEdit">{{tea.choice}}</p>
+                <input ng-show="view.isEdit" type="number" min="1"  ng-model="tea.choice" value="{{tea.choice}}">
+            </td>
+            <td>{{tea.subTotal | currency}}</td>
+            <td class="row">
+                <a ng-hide="view.isEdit" class="waves-effect waves-light btn orange col s6" ng-click="view.isEdit = !view.isEdit">Edit</a>
+                <a ng-show="view.isEdit" class="waves-effect waves-light btn orange col s6" ng-click="view.isEdit = !view.isEdit; view.updateTotals(tea)">Save</a>
+                <a class="waves-effect waves-light btn red col s6" ng-click="tea.choice = 0">Remove</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,14 @@
+<div class="row" ng-repeat="result in results | orderBy:'-Year'">
+    <a ui-sref="show({i: result.imdbID, tomatoes: form.rotten})">
+        <div class="col s8 offset-s2">
+            <div class="card blue-grey darken-1 z-depth-4">
+                <div class="card-content white-text">
+                    <span class="card-title">{{result.Title}}</span>
+                    <p>year:
+                        {{result.Year}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

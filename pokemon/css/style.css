@@ -1,0 +1,14 @@
+.square {
+    height: 30vh;
+    width: 30vh;
+    border-radius: 1rem;
+    border: solid black 1rem;
+}
+.number {
+    font-size: 8rem;
+}
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

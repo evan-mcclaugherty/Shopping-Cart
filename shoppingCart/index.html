@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title>
+            Shopping Cart
+        </title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title" charset="utf-8">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-materialize/0.1.9/angular-materialize.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+
+        <script src="app/app.js"></script>
+        <script src="app/services/TeaService.js"></script>
+        <script src="app/directives/TeaDirective.js"></script>
+        <script src="app/controllers/HomeController.js"></script>
+        <script src="app/controllers/AboutController.js"></script>
+        <script src="app/controllers/ContactController.js"></script>
+    </head>
+    <body class="container">
+        <h1 class="center-align">Welcome to MEAN Tea!</h1>
+        <nav>
+            <div class="nav-wrapper">
+                <ul class="left">
+                    <li>
+                        <a ui-sref="home">Home</a>
+                    </li>
+                    <li>
+                        <a ui-sref="about">About</a>
+                    </li>
+                    <li>
+                        <a ui-sref="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div ui-view></div>
+    </body>
+</html>

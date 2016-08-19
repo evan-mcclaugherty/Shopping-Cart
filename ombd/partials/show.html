@@ -1,0 +1,18 @@
+<h2 class="center-align">{{results.Title}}</h2>
+<div class="row">
+    <div class="col s4">
+        <img ng-hide="headerData.Poster == 'N/A'" class="responsive-img" src="{{headerData.Poster}}"/>
+    </div>
+    <div class="col s8">
+        <h3>{{headerData.Title}}</h3>
+        <p>
+            <strong>Starring: </strong>{{headerData.Actors}}
+        </p>
+        <p>
+            {{headerData.Plot}}
+        </p>
+        <p ng-repeat="result in results">
+            {{result.key}} - {{result.value}}
+        </p>
+    </div>
+</div>
